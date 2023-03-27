@@ -3,12 +3,10 @@
 This is a Python script that compresses and converts PNG and JPEG images to the WebP format using the Pillow library. The script takes two input arguments: input_folder and output_folder, which represent the directory containing the original images and the directory where the compressed images will be saved, respectively.
 
 ## The script uses the following steps to compress and convert each image
-1. Check if the image is a PNG or JPEG file. If it is not, the script skips the image and moves on to the next one.
-2. Open the image using the Pillow library and convert it to the RGBA mode if it has transparency or is in the LA mode. This is done to ensure that the image has an alpha channel, which is required for the WebP format.
-3. Create a new RGBA image with a white background and paste the original image onto it. This is done to fill any transparent pixels in the original image with white.
-4. Save the new image in the WebP format with the specified quality, compression method, and lossless settings.
-5. Calculate the original size and compressed size of the image and calculate the percentage of space saved by the compression.
-6. Print the success or failure message for the optimization of each image.
+1. The script imports necessary modules and packages including os, PIL, and tqdm.
+2. The compress_and_convert_image function is defined, which takes a file path, an output path, and a quality level as parameters. The function opens the image file, checks if it has transparency, creates a new transparent background, pastes the original image onto the new background, and saves the image as a WebP file with the specified quality level. The function returns a boolean value indicating whether the image was successfully compressed and converted, and the percentage of disk space saved.
+3. The main function is defined, which takes an input folder and an output folder as parameters. The function checks if the output folder exists, and creates it if it doesn't. The function then iterates through each file in the input folder, checks if its file extension is .png, .jpg, or .jpeg, and skips the file if it isn't. For each image file, the function calls the compress_and_convert_image function with the input file path and the output file path. If the image is successfully compressed and converted, the output file is saved in the output folder with the same filename and a .webp extension. The function also prints a message indicating the success or failure of each image compression.
+4. If the script is run directly (i.e., not imported as a module), the main function is called with two arguments specifying the input and output folders. The script uses the tqdm package to display a progress bar as the images are processed.
 
 The script uses the tqdm library to display a progress bar while optimizing the images. It also creates the output_folder if it does not already exist. The script saves the optimized images with the same name as the original images but with the .webp extension in the output_folder.
 

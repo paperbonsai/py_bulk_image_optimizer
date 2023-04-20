@@ -1,8 +1,8 @@
-# Python Script for Compressing and Converting Images to WebP
+#Python Script for Compressing and Converting Images to WebP
 
 This is a Python script that compresses and converts PNG and JPEG images to the WebP format using the Pillow library. The script takes two input arguments: input_folder and output_folder, which represent the directory containing the original images and the directory where the compressed images will be saved, respectively.
 
-## The script uses the following steps to compress and convert each image
+##The script uses the following steps to compress and convert each image
 1. The script imports necessary modules and packages including os, PIL, and tqdm.
 2. The compress_and_convert_image function is defined, which takes a file path, an output path, and a quality level as parameters. The function opens the image file, checks if it has transparency, creates a new transparent background, pastes the original image onto the new background, and saves the image as a WebP file with the specified quality level. The function returns a boolean value indicating whether the image was successfully compressed and converted, and the percentage of disk space saved.
 3. The main function is defined, which takes an input folder and an output folder as parameters. The function checks if the output folder exists, and creates it if it doesn't. The function then iterates through each file in the input folder, checks if its file extension is .png, .jpg, or .jpeg, and skips the file if it isn't. For each image file, the function calls the compress_and_convert_image function with the input file path and the output file path. If the image is successfully compressed and converted, the output file is saved in the output folder with the same filename and a .webp extension. The function also prints a message indicating the success or failure of each image compression.
